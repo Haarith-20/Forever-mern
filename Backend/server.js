@@ -16,7 +16,11 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: ["https://forever-frontend-wheat-ten.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 
 //api endpoints
 app.use('/api/user',userrouter)
